@@ -28,7 +28,7 @@ const PassportOCRApp = {
   // Configuration
   // ------------------------------
   config: {
-    BACKEND_URL: "/ocr" // relative URL since frontend is served by Spring Boot
+    BACKEND_URL: "/api/ocr/passport" // relative URL since frontend is served by Spring Boot
   },
 
   // ------------------------------
