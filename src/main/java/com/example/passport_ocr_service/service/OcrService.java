@@ -11,23 +11,21 @@ import java.io.File;
 public class OcrService {
 
     public String extractText(MultipartFile file) throws Exception {
-
         ITesseract tesseract = new Tesseract();
 
-        // Set the path to your local Tesseract installation
-        // Point to the 'tessdata' folder inside your Tesseract path
-        tesseract.setDatapath("C:/Users/lenovo/Downloads/tesseract-ocr-tesseract-9c516f4/tessdata");
-        tesseract.setLanguage("eng");
+        // Point to tessdata inside your resources/static folder
+        // Note: Tesseract expects the parent folder of tessdata
+        String tessDataPath = new File("src/main/resources/static/tesseract").getAbsolutePath();
+        tesseract.setDatapath(tessDataPath);
+        tesseract.setLanguage("eng"); // use eng.traineddata
 
-        // Create a temporary file to store the uploaded image
+        // Save the uploaded file temporarily
         File tempFile = File.createTempFile("ocr-", ".png");
         file.transferTo(tempFile);
 
         try {
-            // Perform OCR
             return tesseract.doOCR(tempFile);
         } finally {
-            // Clean up temp file
             tempFile.delete();
         }
     }
