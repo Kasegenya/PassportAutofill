@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/ocr")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class OcrController {
 
     @Autowired

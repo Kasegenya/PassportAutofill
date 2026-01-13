@@ -28,7 +28,7 @@ const PassportOCRApp = {
   // Config
   // ------------------------------
   config: {
-    BACKEND_URL: "/api/ocr/passport" // relative path, works on Render
+    BACKEND_URL: "api/ocr/passport"
   },
 
   // ------------------------------
